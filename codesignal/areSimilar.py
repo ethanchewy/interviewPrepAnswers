@@ -5,7 +5,7 @@ Given two arrays a and b, check whether they are similar.
 """
 
 def areSimilar(a, b):
-    # a and b can only be similar if we unionize a and b results at most 2 dissimilarities
+    # a and b can only be similar if we unionize a and b results in only 2 or 0 dissimilarities because we can at most swap once 
     count = 0
     a_dict = {}
     b_dict = {}
@@ -22,8 +22,6 @@ def areSimilar(a, b):
         else:
             b_dict[b_val] = 1
 
-    if count <= 2 and a_dict == b_dict:
+    if (count == 0 or count == 2) and a_dict == b_dict:
         return True
     return False
-        
-    
