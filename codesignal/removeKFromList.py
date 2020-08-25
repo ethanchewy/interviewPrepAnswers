@@ -18,11 +18,14 @@ def removeKFromList(l, k):
     
     while pointer != None:
         if pointer.value == k:
-            if head == pointer:
+            if head == pointer or previous == None:
                 head = pointer.next
             else:
                 previous.next = pointer.next
-        previous = pointer
-        pointer = pointer.next
+            pointer = pointer.next
+        else:
+            previous = pointer
+            pointer = pointer.next
     
     return head
+
